@@ -6,20 +6,20 @@ drupal_core_path: "{{ drupal_composer_install_dir }}/web"
 
 # If you need to run multiple instances of Drupal VM, set a unique hostname,
 # machine name, and IP address for each instance.
-vagrant_hostname: drupal.dev
-vagrant_machine_name: drupal
+# vagrant_hostname: drupal.test
+# vagrant_machine_name: drupal
 
 # A list of synced folders, with the keys 'local_path', 'destination', and
 # a 'type' of [nfs|rsync|smb] (leave empty for slow native shares). See
 # http://docs.drupalvm.com/en/latest/getting-started/syncing-folders/ for more.
-vagrant_synced_folders:
+# vagrant_synced_folders:
   # The first synced folder will be used for the default Drupal installation, if
   # any of the build_* settings are 'true'. By default the folder is set to
   # the drupal-vm folder.
-  - local_path: .
-    destination: /var/www/drupalvm/drupal
-    type: nfs
-    create: true
+  # - local_path: .
+    # destination: /var/www/drupalvm/drupal
+    # type: nfs
+    # create: true
 
 # Comment out any extra utilities you don't want to install. If you don't want
 # to install *any* extras, set this value to an empty set, e.g. `[]`.
@@ -30,15 +30,15 @@ installed_extras:
   - drush
   - elasticsearch
   # - java
-  # - mailhog
+  - mailhog
   - memcached
   # - newrelic
-  # - nodejs
+  - nodejs
   - pimpmylog
   - redis
   # - ruby
   # - selenium
-  # - solr
+  - solr
   # - tideways
   # - upload-progress
   - varnish
