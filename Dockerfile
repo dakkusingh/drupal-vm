@@ -1,10 +1,12 @@
-FROM geerlingguy/docker-ubuntu1604-ansible:latest
+FROM geerlingguy/docker-debian9-ansible:latest
 LABEL maintainer="Dakku Singh"
 
 # Copy provisioning directory, variable overrides, and scripts into container.
 COPY ./ /etc/ansible/drupal-vm
 COPY ./provisioning/docker/vars/docker-hub-overrides.yml /etc/ansible/drupal-vm/local.config.yml
 COPY ./provisioning/docker/bin/* /usr/local/bin
+
+RUN apt-get install -y nano vim bash
 
 # Provision Drupal VM inside Docker.
 RUN ansible-playbook /etc/ansible/drupal-vm/provisioning/playbook.yml \
