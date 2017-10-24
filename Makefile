@@ -1,4 +1,4 @@
-VERSION ?= latest
+VERSION ?= base
 
 REPO = dakku/drupal-vm
 NAME = drupal-vm
@@ -9,7 +9,7 @@ build:
 	docker build -t $(REPO):$(VERSION) ./
 
 shell:
-	docker run --rm --name $(NAME) -i -t $(ENV) $(REPO):$(VERSION) /bin/bash
+	docker run --rm --name $(NAME)-$(VERSION) -i -t $(ENV) $(REPO):$(VERSION) /bin/bash
 
 run:
 	docker run --rm --name $(NAME) $(ENV) $(REPO):$(VERSION) $(CMD)
