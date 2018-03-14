@@ -6,7 +6,8 @@ COPY ./ /etc/ansible/drupal-vm
 COPY ./provisioning/docker/vars/docker-hub-overrides.yml /etc/ansible/drupal-vm/local.config.yml
 COPY ./provisioning/docker/bin/* /usr/local/bin
 
-RUN apt-get install -y nano vim bash
+RUN apt-get update \
+    && apt-get install -y nano vim bash
 
 # Provision Drupal VM inside Docker.
 RUN ansible-playbook /etc/ansible/drupal-vm/provisioning/playbook.yml \
