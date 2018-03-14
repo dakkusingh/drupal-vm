@@ -47,13 +47,20 @@ To use XDebug with NetBeans, change the `php_xdebug_idekey` variable as shown be
 ```yaml
 php_xdebug_idekey: netbeans-xdebug
 ```
+### Atom and XDebug with Drupal VM
+
+To use XDebug with Atom, change the `php_xdebug_idekey` variable as shown below in `config.yml`, and then run `vagrant provision` to reconfigure the VM.
+
+```yaml
+php_xdebug_idekey: xdebug-atom
+```
 
 ### XDebug over SSH/Drush
 
 As long as `xdebug` is listed in `installed_extras` Drupal VM is configured to accept the `PHP_IDE_CONFIG`, `XDEBUG_CONFIG` and `PHP_OPTIONS` environment variables over SSH and this can be used to set up some IDE's as well as enable XDebug on a per request basis:
 
 ```
-PHP_OPTIONS="-d xdebug.default_enable=1" drush @drupalvm.drupalvm.test migrate-import
+PHP_OPTIONS="-d xdebug.default_enable=1" drush @drupalvm.drupalvm migrate-import
 ```
 
 To send the environment variables when using `vagrant ssh`, [create a `Vagrantfile.local`](../extending/vagrantfile.md) with:
