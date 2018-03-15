@@ -1,4 +1,4 @@
-VERSION ?= base
+VERSION ?= 2
 
 REPO = dakku/drupal-vm
 NAME = drupal-vm
@@ -25,6 +25,12 @@ logs:
 
 clean:
 	docker rm -f $(NAME)
+
+tag:
+	docker tag $(REPO):$(VERSION) $(REPO):$(VERSION)
+
+push: tag
+	docker push $(REPO)
 
 release: build
 	make push -e VERSION=$(VERSION)
