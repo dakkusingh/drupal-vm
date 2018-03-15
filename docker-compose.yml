@@ -35,7 +35,7 @@ services:
       drupalvm:
         # Set this IP address to something different if you already have another
         # service running on the default IP address. If you change the subnet,
-        # you need to also change the bridge network IP and subnet below.
+        # you need to also change the bridge network IP and subnet below. 
         ipv4_address: 192.168.89.89
 
 networks:
