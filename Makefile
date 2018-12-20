@@ -1,6 +1,6 @@
 VERSION ?= 2
 
-REPO = dakku/drupal-vm
+REPO = dakku/drupal-vm-autobuild
 NAME = drupal-vm
 
 .PHONY: build shell run start stop logs clean release
