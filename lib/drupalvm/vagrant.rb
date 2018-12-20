@@ -52,14 +52,16 @@ end
 
 # Return the ansible version parsed from running the executable path provided.
 def ansible_version
-  /^[^\s]+ (.+)$/.match(`#{ansible_bin} --version`) { |match| return match[1] }
+  /^[^\s]+ ([^\s]+)/.match(`#{ansible_bin} --version`) { |match| return match[1] }
 end
 
 # Require that if installed, the ansible version meets the requirements.
 def require_ansible_version(requirement)
   return unless ansible_bin
+
   req = Gem::Requirement.new(requirement)
   return if req.satisfied_by?(Gem::Version.new(ansible_version))
+
   raise_message "You must install an Ansible version #{requirement} to use this version of Drupal VM."
 end
 
